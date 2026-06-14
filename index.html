@@ -383,13 +383,114 @@
             border-color: rgba(0, 210, 255, 0.3);
             background: rgba(0, 210, 255, 0.08);
         }
+
+        .touch-target {
+            min-height: 44px;
+        }
+
+        @media (max-width: 639px) {
+            .hero-glow {
+                background: radial-gradient(ellipse 90% 45% at 50% 20%, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
+            }
+
+            .hero-visual {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 0.25rem;
+            }
+
+            .owl-wrap {
+                width: 120px;
+                order: 2;
+                opacity: 0.9;
+            }
+
+            .app-preview {
+                order: 1;
+                width: 100%;
+                max-width: 220px;
+                margin: 0 auto;
+            }
+
+            .phone-frame {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+                padding: 8px;
+            }
+
+            .phone-notch {
+                width: 72px;
+                height: 20px;
+                margin-bottom: 6px;
+            }
+
+            .settings-tip-btn {
+                width: 2.75rem;
+                height: 2.75rem;
+                top: -0.25rem;
+                right: -0.25rem;
+            }
+
+            .feature-num {
+                font-size: 2.25rem;
+                top: 0.5rem;
+                right: 0.75rem;
+            }
+
+            .carousel-hint-desktop { display: none; }
+            .carousel-hint-mobile { display: block; }
+
+            .compare-table th,
+            .compare-table td {
+                padding: 0.5rem;
+                font-size: 0.6875rem;
+            }
+
+            .settings-modal {
+                padding: 0.75rem;
+                align-items: flex-end;
+            }
+
+            .settings-modal-panel {
+                max-height: 92vh;
+                border-radius: 1.25rem 1.25rem 0 0;
+            }
+
+            .settings-modal-close {
+                width: 2.75rem;
+                height: 2.75rem;
+            }
+
+            .phone-screen.is-touched .carousel-hint {
+                opacity: 0;
+            }
+
+            .phone-screen.is-touched .carousel-counter {
+                opacity: 1;
+            }
+
+            .section-panel {
+                border-radius: 1.25rem;
+            }
+
+            .facebook-feature-card {
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .carousel-hint-mobile { display: none; }
+            .carousel-hint-desktop { display: block; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
 
     <!-- NAV -->
     <nav class="fixed top-0 inset-x-0 z-50 bg-sg-bg/80 backdrop-blur-xl border-b border-sg-border/40">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5 shrink-0">
                 <svg class="w-7 h-7 text-sg-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/>
@@ -410,51 +511,51 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
             </a>
 
-            <button id="menu-btn" class="md:hidden p-2 text-sg-text" aria-label="Menu">
+            <button id="menu-btn" class="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-sg-text -mr-1" aria-label="Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden border-t border-sg-border/40 bg-sg-bg/95 backdrop-blur-xl">
-            <div class="px-6 py-4 flex flex-col gap-3 text-sm text-sg-text">
-                <a href="#hoe-het-werkt" class="py-2">Hoe het werkt</a>
-                <a href="#functies" class="py-2">Functies</a>
-                <a href="#privacy" class="py-2">Privacy</a>
-                <a href="#over-mij" class="py-2">Over mij</a>
-                <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold text-center py-2.5 rounded-full mt-2">Word tester</a>
+            <div class="px-4 sm:px-6 py-3 flex flex-col gap-1 text-sm text-sg-text">
+                <a href="#hoe-het-werkt" class="py-3 min-h-[44px] flex items-center">Hoe het werkt</a>
+                <a href="#functies" class="py-3 min-h-[44px] flex items-center">Functies</a>
+                <a href="#privacy" class="py-3 min-h-[44px] flex items-center">Privacy</a>
+                <a href="#over-mij" class="py-3 min-h-[44px] flex items-center">Over mij</a>
+                <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full mt-2 touch-target">Word tester</a>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="relative pt-24 pb-12 md:pt-28 md:pb-14 grid-bg hero-glow flex items-center">
-        <div class="max-w-6xl mx-auto px-6 w-full">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-6 items-center">
-                <div>
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-xs font-medium mb-5">
+    <section class="relative pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-14 grid-bg hero-glow flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-6 items-center">
+                <div class="max-w-xl lg:max-w-none mx-auto lg:mx-0 w-full order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-[11px] sm:text-xs font-medium mb-4 sm:mb-5 leading-snug">
                         <span class="w-1.5 h-1.5 rounded-full bg-sg-cyan animate-pulse"></span>
                         Nu in testfase — officiële Android-app · word tester
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold leading-[1.1] tracking-tight mb-4">
+                    <h1 class="text-[1.75rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] lg:text-[3.25rem] font-extrabold tracking-tight mb-3 sm:mb-4">
                         Slimme bescherming tegen digitale fraude.<br>
                         <span class="text-sg-cyan">Direct op je Android-telefoon.</span>
                     </h1>
 
-                    <p class="text-sg-text text-lg leading-relaxed max-w-lg mb-4">
+                    <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-lg mb-3 sm:mb-4">
                         SafeGuard met Odin-AI is je lokale AI-beschermer voor Android die verdachte berichten, links en scams herkent — volledig op je eigen toestel. Geen cloud, geen account, geen dataverzameling. Jouw berichten en data blijven strikt van jou.
                     </p>
 
-                    <p class="text-sg-text text-sm leading-relaxed max-w-lg mb-6 border-l-2 border-sg-cyan/30 pl-4">
+                    <p class="text-sg-text text-sm sm:text-sm leading-6 sm:leading-relaxed max-w-lg mb-5 sm:mb-6 border-l-2 border-sg-cyan/30 pl-3 sm:pl-4">
                         SafeGuard — een Android-app voor Google Play — combineert de nieuwste officiële Google threat signals met diepgaande eigen fraud intelligence — numeric tampering protectie, behavioral sequencing, WhatsApp/Telegram/Signal guard, Odin-AI call intelligence en sterke RASP — voor bescherming die puur caller-ID of standaard Play Protect niet biedt.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
-                        <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3.5 rounded-full text-center">Word tester</a>
-                        <a href="#hoe-het-werkt" class="border border-sg-border text-white font-semibold px-8 py-3.5 rounded-full text-center hover:bg-white/5 transition-colors">Meer weten</a>
+                    <div class="flex flex-col gap-3 sm:flex-row mb-5 sm:mb-6">
+                        <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center touch-target">Word tester</a>
+                        <a href="#hoe-het-werkt" class="border border-sg-border text-white font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center hover:bg-white/5 transition-colors touch-target">Meer weten</a>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 text-sm text-sg-text">
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2.5 sm:gap-4 text-sm text-sg-text">
                         <div class="flex items-center gap-2">
                             <svg class="w-4 h-4 text-sg-cyan shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                             100% on-device
@@ -475,7 +576,7 @@
                     <p class="text-sg-muted text-xs mt-3">Alleen beschikbaar voor Android — niet voor iPhone.</p>
                 </div>
 
-                <div class="hero-visual relative">
+                <div class="hero-visual relative order-1 lg:order-2">
                     <div class="absolute inset-0 bg-sg-cyan/5 blur-3xl rounded-full scale-75 pointer-events-none"></div>
 
                     <div class="owl-wrap relative z-10">
@@ -490,7 +591,8 @@
                             <div class="phone-notch"></div>
                             <div class="phone-screen" id="phone-screen" aria-label="SafeGuard app-screenshots — hover om te bladeren">
                                 <div id="carousel-slides"></div>
-                                <span class="carousel-hint">Beweeg muis over telefoon om te bladeren</span>
+                                <span class="carousel-hint carousel-hint-mobile">Tik om te bladeren</span>
+                                <span class="carousel-hint carousel-hint-desktop">Beweeg muis over telefoon om te bladeren</span>
                                 <span class="carousel-counter" id="carousel-counter">1 / 23</span>
                             </div>
                         </div>
@@ -501,12 +603,12 @@
     </section>
 
     <!-- HOE HET WERKT -->
-    <section id="hoe-het-werkt" class="py-12 md:py-14">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-8">
+    <section id="hoe-het-werkt" class="py-10 sm:py-12 md:py-14">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-6 sm:mb-8">
                 <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Apps &amp; social media</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Bescherming in al je apps en social media</h2>
-                <p class="text-sg-text text-lg max-w-2xl mx-auto">SafeGuard scant niet alleen SMS, maar ook je gesprekken in WhatsApp, Signal, Facebook Messenger, Instagram, Reddit en andere messaging apps. De lokale AI detecteert in realtime:</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-3 leading-tight">Bescherming in al je apps en social media</h2>
+                <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-2xl mx-auto">SafeGuard scant niet alleen SMS, maar ook je gesprekken in WhatsApp, Signal, Facebook Messenger, Instagram, Reddit en andere messaging apps. De lokale AI detecteert in realtime:</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-3">
@@ -515,8 +617,8 @@
                     <div class="icon-box w-10 h-10 rounded-xl flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Phishing en smishing via chat</h3>
-                    <p class="text-sg-text text-sm leading-relaxed">Verdachte berichten in WhatsApp, Signal, Messenger en andere apps worden direct herkend — voordat je reageert of doorklikt.</p>
+                    <h3 class="font-bold text-base sm:text-lg mb-2 leading-snug">Phishing en smishing via chat</h3>
+                    <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Verdachte berichten in WhatsApp, Signal, Messenger en andere apps worden direct herkend — voordat je reageert of doorklikt.</p>
                 </div>
 
                 <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
@@ -524,8 +626,8 @@
                     <div class="icon-box w-10 h-10 rounded-xl flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Manipulatieve berichten en social engineering</h3>
-                    <p class="text-sg-text text-sm leading-relaxed">Odin-AI herkent druk, valse urgentie en manipulatietactieken in DM's en groepschats — ook als het bericht op het eerste gezicht betrouwbaar lijkt.</p>
+                    <h3 class="font-bold text-base sm:text-lg mb-2 leading-snug">Manipulatieve berichten en social engineering</h3>
+                    <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Odin-AI herkent druk, valse urgentie en manipulatietactieken in DM's en groepschats — ook als het bericht op het eerste gezicht betrouwbaar lijkt.</p>
                 </div>
 
                 <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
@@ -533,8 +635,8 @@
                     <div class="icon-box w-10 h-10 rounded-xl flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Verdachte links in groepschats of DM's</h3>
-                    <p class="text-sg-text text-sm leading-relaxed">Kortingen, prijsvragen, valse verificaties — SafeGuard controleert links in al je gesprekken, waar je ook chat.</p>
+                    <h3 class="font-bold text-base sm:text-lg mb-2 leading-snug">Verdachte links in groepschats of DM's</h3>
+                    <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Kortingen, prijsvragen, valse verificaties — SafeGuard controleert links in al je gesprekken, waar je ook chat.</p>
                 </div>
 
                 <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
@@ -542,28 +644,28 @@
                     <div class="icon-box w-10 h-10 rounded-xl flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Overal dezelfde bescherming</h3>
-                    <p class="text-sg-text text-sm leading-relaxed">Of je nu op WhatsApp, Signal of Reddit zit — SafeGuard waarschuwt je direct voordat je op iets verdachts klikt.</p>
+                    <h3 class="font-bold text-base sm:text-lg mb-2 leading-snug">Overal dezelfde bescherming</h3>
+                    <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Of je nu op WhatsApp, Signal of Reddit zit — SafeGuard waarschuwt je direct voordat je op iets verdachts klikt.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- OUDERE SMARTPHONES -->
-    <section id="oudere-smartphones" class="py-12 md:py-14 border-t border-sg-border/30">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="section-panel rounded-3xl p-6 md:p-8 lg:p-10">
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+    <section id="oudere-smartphones" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="section-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10">
+                <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
                     <div>
                         <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Oudere smartphones</p>
-                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-4">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-4">
                             Geen updates meer?<br>
                             <span class="text-sg-cyan">Je telefoon blijft toch veilig.</span>
                         </h2>
-                        <p class="text-sg-text text-base leading-relaxed mb-3">
+                        <p class="text-sg-text text-base leading-7 sm:leading-relaxed mb-3">
                             Veel mensen gebruiken een oudere Android-smartphone die geen security updates meer krijgt van de fabrikant. Dat toestel werkt nog prima — maar zonder patches wordt het langzaam kwetsbaarder voor malware, phishing en digitale fraude.
                         </p>
-                        <p class="text-sg-text text-base leading-relaxed">
+                        <p class="text-sg-text text-base leading-7 sm:leading-relaxed">
                             SafeGuard lost dat voor een groot deel op met slimme, continue bescherming die niet alleen leunt op officiële Android-updates. Odin-AI draait op je toestel, scant verdachte berichten en links, en leert bij via Belgische fraudebronnen — elke dag opnieuw.
                         </p>
                     </div>
@@ -574,8 +676,8 @@
                                 <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
                             </div>
                             <div>
-                                <h3 class="font-bold mb-1.5">Wanneer updates stoppen</h3>
-                                <p class="text-sg-text text-sm leading-relaxed">Zodra de fabrikant stopt met patches, loopt je telefoon achter op bekende kwetsbaarheden. Oudere toestellen zijn daardoor een aantrekkelijk doelwit — zonder dat je het doorhebt.</p>
+                                <h3 class="font-bold text-sm sm:text-base mb-1.5 leading-snug">Wanneer updates stoppen</h3>
+                                <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Zodra de fabrikant stopt met patches, loopt je telefoon achter op bekende kwetsbaarheden. Oudere toestellen zijn daardoor een aantrekkelijk doelwit — zonder dat je het doorhebt.</p>
                             </div>
                         </div>
 
@@ -584,8 +686,8 @@
                                 <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/><path d="M12 8v4l2 2"/></svg>
                             </div>
                             <div>
-                                <h3 class="font-bold mb-1.5">Bescherming op app-niveau</h3>
-                                <p class="text-sg-text text-sm leading-relaxed">SafeGuard voegt een extra laag toe: lokale detectie, linkbescherming en scam-filters — los van wat je fabrikant nog levert. Geen vervanging van systeemupdates, wel een stevige aanvulling die doorloopt.</p>
+                                <h3 class="font-bold text-sm sm:text-base mb-1.5 leading-snug">Bescherming op app-niveau</h3>
+                                <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">SafeGuard voegt een extra laag toe: lokale detectie, linkbescherming en scam-filters — los van wat je fabrikant nog levert. Geen vervanging van systeemupdates, wel een stevige aanvulling die doorloopt.</p>
                             </div>
                         </div>
 
@@ -594,8 +696,8 @@
                                 <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
                             </div>
                             <div>
-                                <h3 class="font-bold mb-1.5">Langer veilig online</h3>
-                                <p class="text-sg-text text-sm leading-relaxed">Het resultaat: je telefoon blijft beschermd tegen oplichting en verdachte links — ook zonder nieuwe patches. Zo haal je meer uit je toestel, op een rustige en betrouwbare manier.</p>
+                                <h3 class="font-bold text-sm sm:text-base mb-1.5 leading-snug">Langer veilig online</h3>
+                                <p class="text-sg-text text-sm leading-6 sm:leading-relaxed">Het resultaat: je telefoon blijft beschermd tegen oplichting en verdachte links — ook zonder nieuwe patches. Zo haal je meer uit je toestel, op een rustige en betrouwbare manier.</p>
                             </div>
                         </div>
                     </div>
@@ -605,16 +707,16 @@
     </section>
 
     <!-- FUNCTIES -->
-    <section id="functies" class="py-12 md:py-14 border-t border-sg-border/30">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-8">
+    <section id="functies" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-6 sm:mb-8">
                 <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Fraudebescherming</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Bescherming tegen de meest voorkomende fraudes</h2>
-                <p class="text-sg-text text-lg max-w-2xl mx-auto">Odin-AI detecteert lokaal de fraudevormen die in België en Nederland het meest voorkomen — van pakketfraude tot numeric tampering en vishing:</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-3 leading-tight">Bescherming tegen de meest voorkomende fraudes</h2>
+                <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-2xl mx-auto">Odin-AI detecteert lokaal de fraudevormen die in België en Nederland het meest voorkomen — van pakketfraude tot numeric tampering en vishing:</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="sm:col-span-2 lg:col-span-4 facebook-feature-card rounded-2xl p-5 md:p-6">
+                <div class="sm:col-span-2 lg:col-span-4 facebook-feature-card rounded-2xl p-4 sm:p-5 md:p-6">
                     <div class="grid md:grid-cols-[1fr_auto] gap-5 md:gap-6 items-start">
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/25 text-red-400 text-xs font-medium mb-3">
@@ -624,7 +726,7 @@
                             <h3 class="font-extrabold text-lg md:text-xl tracking-tight mb-2 text-white">
                                 Bescherming tegen Facebook Hack <span class="text-red-400">/ Account Overname</span>
                             </h3>
-                            <p class="text-sg-text text-sm leading-relaxed mb-4 max-w-2xl">
+                            <p class="text-sg-text text-sm leading-6 sm:leading-relaxed mb-4 max-w-2xl">
                                 Odin-AI beschermt je Facebook-account lokaal op je telefoon. De app detecteert 2FA-phishing, blokkeert social engineering in Messenger en voorkomt Marketplace-scams — vóór oplichters toegang krijgen tot je profiel.
                             </p>
                             <ul class="text-sg-text text-sm space-y-2 mb-5">
@@ -645,7 +747,7 @@
                                     <span><strong class="text-white">100% on-device</strong> — jouw Facebook-activiteit blijft op je telefoon</span>
                                 </li>
                             </ul>
-                            <a href="mailto:safeguardodin@gmail.com?subject=Tester%20aanvraag%20Odin-AI" class="btn-play-store inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-full" aria-label="Vraag tester toegang aan voor Odin-AI via e-mail">
+                            <a href="mailto:safeguardodin@gmail.com?subject=Tester%20aanvraag%20Odin-AI" class="btn-play-store inline-flex items-center justify-center gap-2 text-white font-semibold text-sm px-6 py-3 min-h-[44px] rounded-full touch-target w-full sm:w-auto" aria-label="Vraag tester toegang aan voor Odin-AI via e-mail">
                                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                                 Tester aanvragen
                             </a>
@@ -666,8 +768,8 @@
                         <i class="fa-solid fa-box text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Pakketfraude</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Odin-AI herkent nepberichten van PostNL, DHL, bpost en andere koeriers over "vertraging" of "betaling". Phishing-links en valse itsme-verzoeken worden lokaal geblokkeerd.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Pakketfraude</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Odin-AI herkent nepberichten van PostNL, DHL, bpost en andere koeriers over "vertraging" of "betaling". Phishing-links en valse itsme-verzoeken worden lokaal geblokkeerd.</p>
                     </div>
                 </div>
 
@@ -676,8 +778,8 @@
                         <i class="fa-solid fa-qrcode text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">itsme &amp; QR-scams (QRishing)</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Detecteert pogingen om je itsme-app te misbruiken via QR-codes of nep-verificatieberichten. Odin-AI waarschuwt je voordat je scant of bevestigt.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">itsme &amp; QR-scams (QRishing)</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Detecteert pogingen om je itsme-app te misbruiken via QR-codes of nep-verificatieberichten. Odin-AI waarschuwt je voordat je scant of bevestigt.</p>
                     </div>
                 </div>
 
@@ -686,8 +788,8 @@
                         <i class="fa-solid fa-comment-sms text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Smishing &amp; Phishing</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Odin-AI detecteert lokaal verdachte SMS'jes en phishing-links die proberen je gegevens of geld afhandig te maken — vóór je doorklikt.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Smishing &amp; Phishing</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Odin-AI detecteert lokaal verdachte SMS'jes en phishing-links die proberen je gegevens of geld afhandig te maken — vóór je doorklikt.</p>
                     </div>
                 </div>
 
@@ -696,8 +798,8 @@
                         <i class="fa-solid fa-globe text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Browser Guard</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Controleert links in je browser en waarschuwt vóór een verdachte pagina laadt. Bescherming tegen geavanceerde phishing-sites en malware, volledig on-device.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Browser Guard</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Controleert links in je browser en waarschuwt vóór een verdachte pagina laadt. Bescherming tegen geavanceerde phishing-sites en malware, volledig on-device.</p>
                     </div>
                 </div>
 
@@ -706,8 +808,8 @@
                         <i class="fa-solid fa-money-bill-transfer text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Numeric Tampering Protectie</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Odin-AI detecteert wanneer bedragen, IBANs, crypto-adressen of telefoonnummers in berichten zijn gemanipuleerd — vóór je betaalt of bevestigt.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Numeric Tampering Protectie</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Odin-AI detecteert wanneer bedragen, IBANs, crypto-adressen of telefoonnummers in berichten zijn gemanipuleerd — vóór je betaalt of bevestigt.</p>
                     </div>
                 </div>
 
@@ -716,8 +818,8 @@
                         <i class="fa-solid fa-clone text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Overlay &amp; Accessibility Fraude</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Herkenning van scherm-overlays en misbruik van accessibility-functies. Google threat signals en Odin-AI werken samen — lokaal op je toestel.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Overlay &amp; Accessibility Fraude</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Herkenning van scherm-overlays en misbruik van accessibility-functies. Google threat signals en Odin-AI werken samen — lokaal op je toestel.</p>
                     </div>
                 </div>
 
@@ -726,8 +828,8 @@
                         <i class="fa-solid fa-phone-volume text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">Odin-AI Call Intelligence</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Lokale detectie van spam calls, privé-nummers en vishing. Odin-AI analyseert verdachte oproepen en spraakberichten — zonder audio naar de cloud te sturen.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">Odin-AI Call Intelligence</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Lokale detectie van spam calls, privé-nummers en vishing. Odin-AI analyseert verdachte oproepen en spraakberichten — zonder audio naar de cloud te sturen.</p>
                     </div>
                 </div>
 
@@ -736,21 +838,21 @@
                         <i class="fa-solid fa-comments text-sg-cyan text-sm" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-sm mb-1">WhatsApp / Telegram / Signal Guard</h3>
-                        <p class="text-sg-text text-xs leading-relaxed">Odin-AI scant manipulatieve berichten en verdachte patronen in je chats. Behavioral sequencing herkent oplichting die over meerdere berichten wordt opgebouwd.</p>
+                        <h3 class="font-semibold text-sm sm:text-base mb-1 leading-snug">WhatsApp / Telegram / Signal Guard</h3>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Odin-AI scant manipulatieve berichten en verdachte patronen in je chats. Behavioral sequencing herkent oplichting die over meerdere berichten wordt opgebouwd.</p>
                     </div>
                 </div>
 
-                <div class="sm:col-span-2 lg:col-span-3 pt-6">
-                    <div class="section-panel rounded-3xl p-6 md:p-8 lg:p-10 text-left">
+                <div class="sm:col-span-2 lg:col-span-3 pt-4 sm:pt-6">
+                    <div class="section-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 text-left">
                         <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Waarom SafeGuard</p>
-                        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Waarom SafeGuard anders is</h3>
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3 leading-tight">Waarom SafeGuard anders is</h3>
 
-                        <p class="text-sg-text text-sm md:text-base leading-relaxed mb-3">
+                        <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed mb-3">
                             De meeste mensen denken dat Truecaller of de ingebouwde Google-bescherming genoeg is. Dat klopt voor simpele spam. Maar bij gerichte fraude — nep-IBANs, veranderde bedragen, oplichting via WhatsApp, Telegram of Signal, overlays en vishing — schieten ze tekort.
                         </p>
 
-                        <p class="text-sg-text text-sm md:text-base leading-relaxed mb-4 border-l-2 border-sg-cyan/30 pl-4">
+                        <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed mb-4 border-l-2 border-sg-cyan/30 pl-4">
                             SafeGuard combineert de nieuwste officiële Google threat signals met diepgaande eigen fraud intelligence — numeric tampering protectie, behavioral sequencing, WhatsApp/Telegram/Signal guard, Odin-AI call intelligence en sterke RASP — voor bescherming die puur caller-ID of standaard Play Protect niet biedt.
                         </p>
 
@@ -759,11 +861,11 @@
                         <div class="grid md:grid-cols-2 gap-3 mb-5">
                             <div class="card-glow rounded-2xl p-4">
                                 <h4 class="font-semibold text-sm mb-2 text-white"><strong>Officiële Google threat signals</strong></h4>
-                                <p class="text-sg-text text-xs leading-relaxed">Hardware-backed detectie van overlays, accessibility misbruik, screen capture en malware via Play Integrity en Live Threat proxies.</p>
+                                <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Hardware-backed detectie van overlays, accessibility misbruik, screen capture en malware via Play Integrity en Live Threat proxies.</p>
                             </div>
                             <div class="card-glow rounded-2xl p-4">
                                 <h4 class="font-semibold text-sm mb-2 text-white"><strong>Diepe eigen fraud intelligence</strong></h4>
-                                <p class="text-sg-text text-xs leading-relaxed">Numeric tampering protectie (bedragen, IBAN, crypto, telefoonnummers), slimme sequence-detectie, WhatsApp/Telegram/Signal guard en Odin-AI call intelligence die lokaal leert van jouw markeringen.</p>
+                                <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Numeric tampering protectie (bedragen, IBAN, crypto, telefoonnummers), slimme sequence-detectie, WhatsApp/Telegram/Signal guard en Odin-AI call intelligence die lokaal leert van jouw markeringen.</p>
                             </div>
                         </div>
 
@@ -777,12 +879,13 @@
                             <li><strong class="text-white">Werkt goed op oudere smartphones</strong>: slimme LIGHT mode met lagere drempels</li>
                         </ul>
 
-                        <p class="text-sg-text text-sm md:text-base leading-relaxed mb-6">
+                        <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed mb-6">
                             SafeGuard is gemaakt voor wie écht beschermd wil zijn tegen slimme fraude — niet alleen tegen veel spam.
                         </p>
 
-                        <h4 class="font-semibold text-lg mb-3 text-center">SafeGuard vs standaard bescherming</h4>
-                        <div class="overflow-x-auto -mx-2 px-2">
+                        <h4 class="font-semibold text-base sm:text-lg mb-3 text-center">SafeGuard vs standaard bescherming</h4>
+                        <p class="text-sg-muted text-xs text-center mb-2 sm:hidden">← Swipe om te vergelijken →</p>
+                        <div class="overflow-x-auto -mx-1 sm:-mx-2 px-1 sm:px-2 pb-1">
                             <table class="compare-table w-full min-w-[640px] text-xs md:text-sm">
                                 <thead>
                                     <tr>
@@ -845,16 +948,16 @@
     </section>
 
     <!-- PRIVACY -->
-    <section id="privacy" class="py-12 md:py-14 border-t border-sg-border/30">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-8">
+    <section id="privacy" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-6 sm:mb-8">
                 <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-xs font-medium mb-4">
                     Privacy &amp; technologie
                 </div>
-                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
+                <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight mb-3 leading-tight">
                     Volledig lokaal.<br><span class="text-sg-cyan">Volledig privé.</span>
                 </h2>
-                <p class="text-sg-text text-lg max-w-2xl mx-auto">Odin-AI draait 100% op je toestel. Geen data wordt ooit verzonden naar de cloud. Geen account nodig. Geen tracking. Geen dataverzameling. Jouw berichten, chats en klikgedrag blijven altijd van jou.</p>
+                <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-2xl mx-auto">Odin-AI draait 100% op je toestel. Geen data wordt ooit verzonden naar de cloud. Geen account nodig. Geen tracking. Geen dataverzameling. Jouw berichten, chats en klikgedrag blijven altijd van jou.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-3">
@@ -862,8 +965,8 @@
                     <div class="icon-box w-10 h-10 rounded-xl flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
                     </div>
-                    <h3 class="font-bold mb-2">Odin-AI op je toestel</h3>
-                    <p class="text-sg-text text-sm">100% lokale verwerking — alle analyse gebeurt op je eigen toestel.</p>
+                    <h3 class="font-bold text-sm sm:text-base mb-2">Odin-AI op je toestel</h3>
+                    <p class="text-sg-text text-sm leading-6">100% lokale verwerking — alle analyse gebeurt op je eigen toestel.</p>
                 </div>
 
                 <div class="card-glow rounded-2xl p-4">
@@ -924,13 +1027,13 @@
     </section>
 
     <!-- OVER MIJ -->
-    <section id="over-mij" class="py-12 md:py-14">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="section-panel rounded-3xl p-6 md:p-8 lg:p-10">
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+    <section id="over-mij" class="py-10 sm:py-12 md:py-14">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="section-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10">
+                <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
                     <div>
                         <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Over mij</p>
-                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-5">Gebouwd door iemand die betere bescherming miste</h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-5">Gebouwd door iemand die betere bescherming miste</h2>
 
                         <div class="space-y-3">
                             <div class="flex items-center gap-3">
@@ -954,7 +1057,7 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 text-sg-text text-sm leading-relaxed">
+                    <div class="space-y-3 text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed">
                         <p>Ik ben een Android power user en AI builder uit België. Ik werk dagelijks met Android Studio als Google Developer, bouw mini-PC's en draai lokale AI-modellen op Windows, Linux en macOS. Daarnaast heb ik een achtergrond als informatica-beheerder.</p>
                         <p>Ik zag hoe makkelijk mensen worden opgelicht via SMS en verdachte links. Dat motiveerde me om zelf een betere, privacy-vriendelijke oplossing te bouwen. SafeGuard is het resultaat: een onafhankelijke app die lokale AI (Odin-AI) combineert met officiële Belgische bronnen — volledig on-device, zonder account, cloud of dataverzameling.</p>
                         <p>Het is nog in testfase, maar ontwikkeld door iemand die een praktische en transparante bescherming miste.</p>
@@ -965,15 +1068,15 @@
     </section>
 
     <!-- CTA -->
-    <section id="cta" class="py-12 md:py-14">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="cta-panel rounded-3xl p-8 md:p-10 text-center">
+    <section id="cta" class="py-10 sm:py-12 md:py-14">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="cta-panel rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 text-center">
                 <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sg-cyan/20 border border-sg-cyan/30 mb-4 shadow-[0_0_24px_rgba(0,210,255,0.2)]">
                     <svg class="w-6 h-6 text-sg-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/></svg>
                 </div>
 
-                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Word tester — en krijg lifetime premium toegang</h2>
-                <p class="text-sg-text text-sm md:text-base leading-relaxed max-w-lg mx-auto mb-4">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3 leading-tight">Word tester — en krijg lifetime premium toegang</h2>
+                <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed max-w-lg mx-auto mb-4">
                     SafeGuard is nog in testfase. We zoeken een beperkt aantal mensen die de app dagelijks willen gebruiken en ons helpen verbeteren. Als tester krijg je lifetime premium toegang: je betaalt nooit meer voor de app.
                 </p>
 
@@ -996,9 +1099,9 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-                    <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3 rounded-full">Word tester</a>
-                    <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Feedback" class="border border-sg-border text-white font-semibold px-8 py-3 rounded-full hover:bg-white/5 transition-colors">Feedback geven</a>
+                <div class="flex flex-col gap-3 sm:flex-row justify-center mb-4">
+                    <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target">Word tester</a>
+                    <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Feedback" class="border border-sg-border text-white font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/5 transition-colors touch-target">Feedback geven</a>
                 </div>
 
                 <p class="text-sg-text text-sm mb-4">
@@ -1012,8 +1115,8 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="border-t border-sg-border/30 py-5">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-sg-muted">
+    <footer class="border-t border-sg-border/30 py-5 px-4 sm:px-0">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-sg-muted text-center sm:text-left">
             <div class="flex items-center gap-2">
                 <svg class="w-5 h-5 text-sg-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/></svg>
                 <span class="font-semibold text-white">SafeGuard</span>
@@ -1108,9 +1211,25 @@
         phoneScreen.addEventListener('mouseleave', stopCarousel);
 
         phoneScreen.addEventListener('touchstart', () => {
+            phoneScreen.classList.add('is-touched');
             startCarousel();
-            setTimeout(stopCarousel, CAROUSEL_INTERVAL_MS * 4);
+            setTimeout(() => {
+                stopCarousel();
+                phoneScreen.classList.remove('is-touched');
+            }, CAROUSEL_INTERVAL_MS * 4);
         }, { passive: true });
+
+        phoneScreen.addEventListener('click', () => {
+            if (window.matchMedia('(max-width: 639px)').matches) {
+                nextSlide();
+                phoneScreen.classList.add('is-touched');
+                updateCounter();
+                clearTimeout(phoneScreen._tapTimer);
+                phoneScreen._tapTimer = setTimeout(() => {
+                    phoneScreen.classList.remove('is-touched');
+                }, 2000);
+            }
+        });
 
         const SETTINGS_SCREENSHOTS = [
             {
