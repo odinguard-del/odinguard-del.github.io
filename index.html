@@ -61,6 +61,18 @@
             transform: translateY(-1px);
         }
 
+        .btn-facebook {
+            background: #1877F2;
+            box-shadow: 0 0 16px rgba(24, 119, 242, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-facebook:hover {
+            background: #166FE5;
+            box-shadow: 0 0 24px rgba(24, 119, 242, 0.4);
+            transform: translateY(-1px);
+        }
+
         .card-glow {
             border: 1px solid rgba(26, 39, 68, 0.8);
             background: linear-gradient(145deg, rgba(12, 20, 37, 0.9) 0%, rgba(8, 14, 26, 0.95) 100%);
@@ -506,10 +518,18 @@
                 <a href="#over-mij" class="nav-link">Over mij</a>
             </div>
 
-            <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="hidden md:inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
-                Word tester
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-            </a>
+            <div class="hidden md:flex items-center gap-2.5 shrink-0">
+                <a href="https://www.facebook.com/profile.php?id=61590523230972" class="btn-facebook inline-flex items-center gap-1.5 text-white font-semibold text-sm px-4 py-2 rounded-full" target="_blank" rel="noopener noreferrer" aria-label="Volg SafeGuard op Facebook" title="Volg SafeGuard op Facebook">
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
+                    Word tester
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
 
             <button id="menu-btn" class="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-sg-text -mr-1" aria-label="Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -522,7 +542,15 @@
                 <a href="#functies" class="py-3 min-h-[44px] flex items-center">Functies</a>
                 <a href="#privacy" class="py-3 min-h-[44px] flex items-center">Privacy</a>
                 <a href="#over-mij" class="py-3 min-h-[44px] flex items-center">Over mij</a>
-                <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full mt-2 touch-target">Word tester</a>
+                <div class="flex flex-col sm:flex-row gap-2 mt-2">
+                    <a href="https://www.facebook.com/profile.php?id=61590523230972" class="btn-facebook text-white font-semibold text-center py-3 min-h-[44px] flex items-center justify-center gap-2 rounded-full touch-target" target="_blank" rel="noopener noreferrer" aria-label="Volg SafeGuard op Facebook">
+                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Facebook
+                    </a>
+                    <a href="mailto:safeguardodin@gmail.com?subject=SafeGuard%20Tester" class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target flex-1">Word tester</a>
+                </div>
             </div>
         </div>
     </nav>
