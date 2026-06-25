@@ -89,6 +89,32 @@
             transform: translateY(-1px);
         }
 
+        .badge-nieuw {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            background: rgba(245, 166, 35, 0.15);
+            border: 1px solid rgba(245, 166, 35, 0.45);
+            color: #F5A623;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        .scanner-feature-card {
+            border: 1px solid rgba(245, 166, 35, 0.35);
+            background: linear-gradient(145deg, rgba(20, 16, 8, 0.95) 0%, rgba(12, 20, 37, 0.92) 45%, rgba(8, 14, 26, 0.95) 100%);
+            box-shadow: 0 0 40px -8px rgba(245, 166, 35, 0.12);
+        }
+
+        .scanner-feature-card:hover {
+            border-color: rgba(245, 166, 35, 0.5);
+        }
+
         .card-glow {
             border: 1px solid rgba(26, 39, 68, 0.8);
             background: linear-gradient(145deg, rgba(12, 20, 37, 0.9) 0%, rgba(8, 14, 26, 0.95) 100%);
@@ -525,6 +551,7 @@
                     <circle cx="12" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
                 </svg>
                 <span class="font-bold text-lg tracking-tight">OdinGuard</span>
+                <span class="badge-nieuw hidden sm:inline-flex">Nieuw!</span>
             </a>
 
             <div class="hidden md:flex items-center gap-8 text-sm text-sg-text">
@@ -541,8 +568,8 @@
                     </svg>
                     Facebook
                 </a>
-                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
-                    Word tester
+                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
+                    📲 Word tester
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -565,7 +592,7 @@
                         </svg>
                         Facebook
                     </a>
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target flex-1">Word tester</a>
+                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target flex-1">📲 Word tester</a>
                 </div>
             </div>
         </div>
@@ -576,9 +603,10 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
             <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-6 items-center">
                 <div class="max-w-xl lg:max-w-none mx-auto lg:mx-0 w-full order-2 lg:order-1">
-                    <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-[11px] sm:text-xs font-medium mb-4 sm:mb-5 leading-snug">
+                    <div class="inline-flex flex-wrap items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-[11px] sm:text-xs font-medium mb-4 sm:mb-5 leading-snug">
                         <span class="w-1.5 h-1.5 rounded-full bg-sg-cyan animate-pulse"></span>
-                        Nu in testfase — officiële Android-app · word tester
+                        Nu in testfase — Document &amp; Berichtenscanner beschikbaar
+                        <span class="badge-nieuw">Nieuw!</span>
                     </div>
 
                     <h1 class="text-[1.75rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] lg:text-[3.25rem] font-extrabold tracking-tight mb-3 sm:mb-4">
@@ -595,7 +623,7 @@
                     </p>
 
                     <div class="flex flex-col gap-3 sm:flex-row mb-5 sm:mb-6">
-                        <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center touch-target">Word tester</a>
+                        <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center touch-target">📲 Word tester</a>
                         <a href="#hoe-het-werkt" class="border border-sg-border text-white font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center hover:bg-white/5 transition-colors touch-target">Meer weten</a>
                     </div>
 
@@ -820,6 +848,19 @@
                     </div>
                 </div>
 
+                <div class="sm:col-span-2 lg:col-span-2 scanner-feature-card rounded-2xl p-4 flex gap-3 items-start">
+                    <div class="icon-box w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(245, 166, 35, 0.12); border-color: rgba(245, 166, 35, 0.3);">
+                        <i class="fa-solid fa-file-shield text-[#F5A623] text-sm" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <h3 class="font-semibold text-sm sm:text-base leading-snug">Document- &amp; bijlagenbescherming</h3>
+                            <span class="badge-nieuw">Nieuw!</span>
+                        </div>
+                        <p class="text-sg-text text-xs sm:text-sm leading-5 sm:leading-relaxed">Blokkeert gevaarlijke bestanden (.vbs, .js, .ps1, .apk, .exe). Detecteert valse facturen op IBAN, BTW en KVK. Slimme gedragsanalyse per contact.</p>
+                    </div>
+                </div>
+
                 <div class="card-glow rounded-2xl p-4 flex gap-3 items-start">
                     <div class="icon-box w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                         <i class="fa-solid fa-box text-sg-cyan text-sm" aria-hidden="true"></i>
@@ -900,6 +941,52 @@
                     </div>
                 </div>
 
+                <div id="nieuw" class="sm:col-span-2 lg:col-span-4 scanner-feature-card rounded-2xl p-4 sm:p-5 md:p-6">
+                    <div class="grid md:grid-cols-[1fr_auto] gap-5 md:gap-6 items-start">
+                        <div>
+                            <div class="inline-flex flex-wrap items-center gap-2 mb-3">
+                                <p class="text-[#F5A623] text-xs font-semibold tracking-[0.2em] uppercase">Nieuwe bescherming</p>
+                                <span class="badge-nieuw">Nieuw!</span>
+                            </div>
+                            <h3 class="font-extrabold text-lg md:text-xl tracking-tight mb-2 text-white flex flex-wrap items-center gap-2">
+                                Document &amp; Berichtenscanner
+                            </h3>
+                            <p class="text-sg-text text-sm leading-6 sm:leading-relaxed mb-4 max-w-2xl">
+                                Odin-AI scant nu ook bijlagen en documenten in je berichten — volledig lokaal. Gevaarlijke bestanden worden geblokkeerd, facturen gecontroleerd en afwijkend contactgedrag direct opgemerkt.
+                            </p>
+                            <ul class="text-sg-text text-sm space-y-2 mb-5">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-[#F5A623] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
+                                    <span>Blokkeert gevaarlijke bijlagen zoals <strong class="text-white">.vbs, .js, .ps1, .apk, .exe</strong></span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-[#F5A623] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
+                                    <span>Scant facturen op valse <strong class="text-white">IBAN-, BTW- en KVK-nummers</strong></span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-[#F5A623] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
+                                    <span><strong class="text-white">Leert van contactgedrag:</strong> een bekende die plots een .apk stuurt? Waarschuwing!</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-[#F5A623] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
+                                    <span>Werkt in <strong class="text-white">WhatsApp, Signal, Messenger, SMS</strong> en gedeelde bestanden</span>
+                                </li>
+                            </ul>
+                            <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg inline-flex items-center justify-center gap-2 font-semibold text-sm px-6 py-3 min-h-[44px] rounded-full touch-target w-full sm:w-auto">
+                                📲 Test de nieuwste versie
+                            </a>
+                        </div>
+                        <div class="hidden md:flex items-center justify-center shrink-0">
+                            <div class="relative w-20 h-20 rounded-2xl flex items-center justify-center shadow-[0_0_32px_rgba(245,166,35,0.15)]" style="background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.35);">
+                                <i class="fa-solid fa-file-shield text-4xl text-[#F5A623]" aria-hidden="true"></i>
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 rounded-full bg-sg-bg border flex items-center justify-center shadow-lg" style="border-color: rgba(245, 166, 35, 0.45);">
+                                    <i class="fa-solid fa-shield-halved text-[#F5A623] text-sm" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="sm:col-span-2 lg:col-span-3 pt-4 sm:pt-6">
                     <div class="section-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 text-left">
                         <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Waarom OdinGuard</p>
@@ -928,6 +1015,7 @@
 
                         <h4 class="font-semibold text-base mb-3">Wat dit concreet oplevert</h4>
                         <ul class="text-sg-text text-sm leading-relaxed space-y-1.5 mb-4">
+                            <li><strong class="text-white">Document- &amp; bijlagenbescherming</strong>: blokkeert .vbs/.apk en scant facturen op IBAN/BTW/KVK</li>
                             <li><strong class="text-white">Overlay- en accessibility-fraude</strong>: tot 93% detectie</li>
                             <li><strong class="text-white">Social messaging (WhatsApp, Telegram, Signal)</strong>: 88–92% effectiviteit</li>
                             <li><strong class="text-white">Spam calls + privé-nummers</strong>: tot 91% detectie met Odin-AI</li>
@@ -988,6 +1076,12 @@
                                         <td>Goed</td>
                                         <td>Goed</td>
                                         <td class="col-sg"><strong class="text-white">Goed</strong> (LIGHT mode)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-white font-medium">Document- &amp; bijlagenbescherming</td>
+                                        <td>Geen</td>
+                                        <td>Beperkt</td>
+                                        <td class="col-sg"><strong class="text-white">Uitstekend</strong></td>
                                     </tr>
                                     <tr>
                                         <td class="text-white font-medium">Diepe fraud intelligence</td>
@@ -1134,7 +1228,7 @@
 
                 <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3 leading-tight">Word tester — en krijg lifetime premium toegang</h2>
                 <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed max-w-lg mx-auto mb-4">
-                    OdinGuard is nog in testfase. We zoeken een beperkt aantal mensen die de app dagelijks willen gebruiken en ons helpen verbeteren. Als tester krijg je lifetime premium toegang: je betaalt nooit meer voor de app.
+                    OdinGuard is nog in testfase. Test nu de nieuwste versie met de <strong class="text-white">Document &amp; Berichtenscanner</strong>. We zoeken een beperkt aantal mensen die de app dagelijks willen gebruiken en ons helpen verbeteren. Als tester krijg je lifetime premium toegang: je betaalt nooit meer voor de app.
                 </p>
 
                 <div class="max-w-md mx-auto text-left mb-6 space-y-4">
@@ -1142,7 +1236,7 @@
                         <p class="text-white text-sm font-semibold mb-2">Wat je krijgt</p>
                         <ul class="text-sg-text text-sm leading-relaxed space-y-1.5 list-disc pl-5">
                             <li>Lifetime premium toegang — je betaalt nooit meer voor OdinGuard</li>
-                            <li>Vroegtijdige toegang tot alle premiumfuncties</li>
+                            <li>Vroegtijdige toegang tot de Document &amp; Berichtenscanner en alle premiumfuncties</li>
                             <li>Je helpt mee de app klaar te maken voor België en Nederland</li>
                         </ul>
                     </div>
@@ -1157,13 +1251,13 @@
                 </div>
 
                 <div class="flex flex-col gap-3 sm:flex-row justify-center mb-4">
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="btn-primary text-sg-bg font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target">Word tester</a>
+                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target">📲 Word tester</a>
                     <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Feedback" class="border border-sg-border text-white font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/5 transition-colors touch-target">Feedback geven</a>
                 </div>
 
                 <p class="text-sg-text text-sm mb-4">
                     Mail ons op
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="text-sg-cyan hover:underline font-medium">safeguardodin@gmail.com</a>
+                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="text-sg-cyan hover:underline font-medium">safeguardodin@gmail.com</a>
                 </p>
 
                 <p class="text-sg-muted text-xs">Beperkt aantal plaatsen · Lifetime premium voor testers · 100% on-device</p>
