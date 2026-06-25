@@ -8,7 +8,7 @@
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
                    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
                    img-src 'self' data:;
-                   connect-src 'self';
+                   connect-src 'self' https://cdn.tailwindcss.com;
                    frame-ancestors 'none';
                    base-uri 'self';
                    form-action 'self'">
@@ -16,16 +16,11 @@
     <title>OdinGuard — Slimme bescherming tegen digitale fraude</title>
     <meta name="description" content="OdinGuard met Odin-AI is je lokale AI-beschermer tegen digitale fraude — verdachte berichten, links en scams, volledig op je toestel. Geen cloud, geen account.">
     <!-- SRI: Tailwind play-CDN kan wijzigen — hash periodiek vernieuwen via openssl/curl -->
-    <script src="https://cdn.tailwindcss.com"
-            integrity="sha384-igm5BeiBt36UU4gqwWS7imYmelpTsZlQ45FZf+XBn9MuJbn4nQr7yx1yFydocC/K"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- SRI: Google Fonts CSS kan per browser verschillen — bij laadfout hash opnieuw berekenen -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-          integrity="sha384-EmY0KuCd50MFJlIDVN2zmmd4P5OWDltNDl8ZWGSgoNjltGLqdLd85MhCn+guk0RS"
-          crossorigin="anonymous">
+          rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
