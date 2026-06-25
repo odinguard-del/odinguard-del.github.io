@@ -12,15 +12,19 @@
                    frame-ancestors 'none';
                    base-uri 'self';
                    form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OdinGuard — Slimme bescherming tegen digitale fraude</title>
     <meta name="description" content="OdinGuard met Odin-AI is je lokale AI-beschermer tegen digitale fraude — verdachte berichten, links en scams, volledig op je toestel. Geen cloud, geen account.">
-    <!-- SRI: Tailwind play-CDN kan wijzigen — hash periodiek vernieuwen via openssl/curl -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TODO: SRI-hash voor Tailwind play-CDN — geen vaste versie, hash wijzigt bij CDN-updates -->
+    <script src="https://cdn.tailwindcss.com" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- TODO: SRI-hash voor Google Fonts — CSS verschilt per browser/user-agent -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+          rel="stylesheet"
+          crossorigin="anonymous">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
