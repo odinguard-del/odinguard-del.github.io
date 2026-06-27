@@ -9,6 +9,7 @@
                    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
                    img-src 'self' data: https://odinguard.goatcounter.com;
                    connect-src 'self' https://cdn.tailwindcss.com https://odinguard.goatcounter.com;
+                   frame-src https://odinguard.goatcounter.com;
                    frame-ancestors 'none';
                    base-uri 'self';
                    form-action 'self'">
@@ -99,26 +100,37 @@
 
     <footer class="border-t border-sg-border/40 py-6 text-center text-sm">
         <p class="text-sg-text">&copy; OdinGuard</p>
-        <p id="visitor-counter" class="text-xs text-sg-muted mt-2">
-            Bezoekers: <span id="visitor-counter-value" class="text-sg-text font-medium tabular-nums">laden…</span>
-        </p>
+        <div id="gc-counter" class="text-xs text-sg-muted mt-2">
+            Bezoekers: <span id="counter-value">laden…</span>
+            <noscript>Bezoekers: <a href="https://odinguard.goatcounter.com/" class="text-sg-cyan hover:underline">odinguard.goatcounter.com</a></noscript>
+        </div>
     </footer>
     <script>
         (function () {
-            const GOATCOUNTER_SITE = 'odinguard';
-            const counterEl = document.getElementById('visitor-counter-value');
-            if (!counterEl) return;
+            var valueEl = document.getElementById('counter-value');
+            if (!valueEl) return;
 
-            fetch('https://' + GOATCOUNTER_SITE + '.goatcounter.com/counter/-.json')
-                .then(function (response) {
-                    return response.ok ? response.json() : Promise.reject();
-                })
-                .then(function (data) {
-                    counterEl.textContent = Number(data.count || 0).toLocaleString('nl-BE');
-                })
-                .catch(function () {
-                    counterEl.textContent = '—';
-                });
+            var attempts = 0;
+            var timer = setInterval(function () {
+                attempts++;
+                if (window.goatcounter && window.goatcounter.visit_count) {
+                    clearInterval(timer);
+                    var widgetHost = document.createElement('span');
+                    widgetHost.id = 'gc-counter-widget';
+                    valueEl.replaceWith(widgetHost);
+                    window.goatcounter.visit_count({
+                        append: '#gc-counter-widget',
+                        path: 'TOTAL',
+                        no_branding: true,
+                        style: 'div { border: none !important; background: transparent !important; box-shadow: none !important; color: #94a3b8 !important; padding: 0 !important; margin: 0 !important; width: auto !important; height: auto !important; min-height: 0 !important; font-size: 0.75rem !important; line-height: 1.25rem !important; } #gcvc-for { display: none !important; } #gcvc-views { font-weight: 600 !important; color: #94a3b8 !important; } #gcvc-by { display: none !important; }'
+                    });
+                    return;
+                }
+                if (attempts > 100) {
+                    clearInterval(timer);
+                    valueEl.textContent = '—';
+                }
+            }, 100);
         })();
     </script>
 </body>
