@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+                   script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://kit.fontawesome.com https://gc.zgo.at;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                   img-src 'self' data: https://odinguard.goatcounter.com;
+                   connect-src 'self' https://cdn.tailwindcss.com https://odinguard.goatcounter.com;
+                   frame-src https://odinguard.goatcounter.com;
+                   frame-ancestors 'none';
+                   base-uri 'self';
+                   form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin-Ai Threat Radar — OdinGuard</title>
+    <meta name="description" content="Odin-Ai Threat Radar: real-time fraude-meldingen uit uw regio. Safeonweb, Europol, NCSC, CCB en community-signalen — 100% lokaal, volledig privé.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+          crossorigin="anonymous">
+    <script data-goatcounter="https://odinguard.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        sg: {
+                            bg: '#0B0E14',
+                            card: '#111827',
+                            border: '#1a2744',
+                            cyan: '#00d2ff',
+                            gold: '#F5A623',
+                            text: '#94a3b8',
+                            muted: '#64748b',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body { background-color: #0B0E14; color: #fff; }
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+        .hero-glow {
+            background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.1) 0%, transparent 65%);
+        }
+        .card-glow {
+            border: 1px solid rgba(26, 39, 68, 0.8);
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.95) 0%, rgba(11, 14, 20, 0.98) 100%);
+        }
+        .card-gold {
+            border: 1px solid rgba(245, 166, 35, 0.35);
+            background: linear-gradient(145deg, rgba(20, 16, 8, 0.95) 0%, rgba(17, 24, 39, 0.92) 100%);
+            box-shadow: 0 0 40px -10px rgba(245, 166, 35, 0.15);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #F5A623 0%, #e09410 100%);
+            box-shadow: 0 0 24px rgba(245, 166, 35, 0.3);
+            transition: all 0.2s ease;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 32px rgba(245, 166, 35, 0.45);
+            transform: translateY(-1px);
+        }
+        .badge-nieuw {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            background: rgba(245, 166, 35, 0.15);
+            border: 1px solid rgba(245, 166, 35, 0.45);
+            color: #F5A623;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .source-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(245, 166, 35, 0.08);
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            color: #F5A623;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .step-num {
+            color: rgba(245, 166, 35, 0.15);
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen grid-bg hero-glow flex flex-col">
+    <nav class="fixed top-0 inset-x-0 z-50 bg-[#0B0E14]/90 backdrop-blur-xl border-b border-sg-border/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5 shrink-0">
+                <svg class="w-7 h-7 text-sg-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/>
+                    <circle cx="12" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
+                </svg>
+                <span class="font-bold text-lg tracking-tight">OdinGuard</span>
+            </a>
+            <a href="/" class="text-sm text-sg-text hover:text-white transition-colors flex items-center gap-1.5 min-h-[44px] px-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Terug naar homepage
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-1 pt-24 pb-12 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero -->
+            <header class="text-center mb-10 sm:mb-14">
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <span class="badge-nieuw">Nieuw</span>
+                </div>
+                <div class="flex justify-center mb-4">
+                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center card-gold">
+                        <i class="fa-solid fa-satellite-dish text-3xl text-sg-gold" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 leading-tight">
+                    🛡️ Odin-Ai Threat Radar
+                </h1>
+                <p class="text-lg sm:text-xl text-sg-gold font-semibold mb-4">
+                    Real-time fraude-meldingen uit uw regio
+                </p>
+                <p class="text-sg-text text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                    <strong class="text-white">Samen alert, volledig privé.</strong><br>
+                    Odin-AI verzamelt anonieme signalen uit jouw regio.<br>
+                    Lokale bescherming zonder clouddata. 100% privacy.
+                </p>
+            </header>
+
+            <!-- Wat is de Threat Radar? -->
+            <section class="card-gold rounded-2xl p-5 sm:p-8 mb-6">
+                <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-radar text-sg-gold" aria-hidden="true"></i>
+                    Wat is de Threat Radar?
+                </h2>
+                <p class="text-sg-text text-sm sm:text-base leading-relaxed mb-5">
+                    De Odin-Ai Threat Radar is een unieke functie van OdinGuard die u real-time waarschuwt voor fraude in uw buurt. Geen algemene waarschuwingen, maar meldingen van:
+                </p>
+                <ul class="space-y-3 text-sm sm:text-base">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-users text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <span class="text-sg-text"><strong class="text-white">Andere gebruikers</strong> (anoniem)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-building-shield text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <span class="text-sg-text"><strong class="text-white">Safeonweb</strong> (CCB)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-globe-europe text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <span class="text-sg-text"><strong class="text-white">Europol</strong> (EC3)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-flag text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <span class="text-sg-text"><strong class="text-white">NCSC Nederland</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-shield-halved text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <span class="text-sg-text"><strong class="text-white">CERT Belgium</strong></span>
+                    </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mt-6">
+                    <span class="source-pill"><i class="fa-solid fa-circle text-[8px]" aria-hidden="true"></i> Safeonweb</span>
+                    <span class="source-pill"><i class="fa-solid fa-circle text-[8px]" aria-hidden="true"></i> Europol EC3</span>
+                    <span class="source-pill"><i class="fa-solid fa-circle text-[8px]" aria-hidden="true"></i> NCSC NL</span>
+                    <span class="source-pill"><i class="fa-solid fa-circle text-[8px]" aria-hidden="true"></i> CERT.be</span>
+                    <span class="source-pill"><i class="fa-solid fa-circle text-[8px]" aria-hidden="true"></i> Community</span>
+                </div>
+            </section>
+
+            <!-- Hoe werkt het? -->
+            <section class="mb-6">
+                <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-4 text-center">Hoe werkt het?</h2>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
+                        <span class="step-num absolute top-3 right-4" aria-hidden="true">01</span>
+                        <i class="fa-solid fa-location-crosshairs text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <p class="text-sg-text text-sm leading-relaxed">OdinGuard verzamelt anonieme signalen uit uw regio.</p>
+                    </div>
+                    <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
+                        <span class="step-num absolute top-3 right-4" aria-hidden="true">02</span>
+                        <i class="fa-solid fa-bell text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <p class="text-sg-text text-sm leading-relaxed">U ontvangt een push-notificatie bij nieuwe dreigingen.</p>
+                    </div>
+                    <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
+                        <span class="step-num absolute top-3 right-4" aria-hidden="true">03</span>
+                        <i class="fa-solid fa-list-check text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <p class="text-sg-text text-sm leading-relaxed">In de app ziet u een overzicht van actieve campagnes, meldingen en officiële waarschuwingen.</p>
+                    </div>
+                    <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
+                        <span class="step-num absolute top-3 right-4" aria-hidden="true">04</span>
+                        <i class="fa-solid fa-mobile-screen text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <p class="text-sg-text text-sm leading-relaxed">Alles blijft lokaal op uw toestel – geen data naar de cloud.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Waarom belangrijk? -->
+            <section class="card-glow rounded-2xl p-5 sm:p-8 mb-8 border-l-4 border-sg-gold">
+                <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-3">Waarom belangrijk?</h2>
+                <p class="text-sg-text text-sm sm:text-base leading-relaxed">
+                    Fraude is lokaal. Een phishing-poging in Antwerpen kan heel anders zijn dan in Brussel. De Threat Radar geeft u precies de informatie die relevant is voor uw regio. <strong class="text-sg-gold">Gewaarschuwd = beschermd.</strong>
+                </p>
+            </section>
+
+            <!-- CTA -->
+            <section class="card-gold rounded-2xl p-6 sm:p-10 text-center">
+                <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-3">Word tester</h2>
+                <p class="text-sg-text text-sm sm:text-base leading-relaxed mb-6 max-w-lg mx-auto">
+                    📲 Word nu tester en ontdek de Threat Radar in de OdinGuard Android-app.
+                </p>
+                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Threat%20Radar&amp;body=Hoi%2C%20ik%20wil%20tester%20worden%20en%20de%20Odin-Ai%20Threat%20Radar%20uitproberen."
+                   class="btn-gold inline-flex items-center justify-center gap-2 text-[#0B0E14] font-semibold text-sm sm:text-base px-8 py-3.5 min-h-[44px] rounded-full touch-target">
+                    📲 Word tester
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="border-t border-sg-border/40 py-6 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-xs sm:text-sm text-sg-text mb-3">
+                Beschermd door Odin-Ai · 100% on-device · Geen cloud · Geen account
+            </p>
+            <a href="/" class="text-sm text-sg-gold hover:underline">← Terug naar homepage</a>
+            <div id="gc-counter" class="text-xs text-sg-muted mt-4">
+                Bezoekers: <span id="counter-value">laden…</span>
+                <noscript>Bezoekers: <a href="https://odinguard.goatcounter.com/" class="text-sg-gold hover:underline">odinguard.goatcounter.com</a></noscript>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var valueEl = document.getElementById('counter-value');
+            if (!valueEl) return;
+            var attempts = 0;
+            var timer = setInterval(function () {
+                attempts++;
+                if (window.goatcounter && window.goatcounter.visit_count) {
+                    clearInterval(timer);
+                    var widgetHost = document.createElement('span');
+                    widgetHost.id = 'gc-counter-widget';
+                    valueEl.replaceWith(widgetHost);
+                    window.goatcounter.visit_count({
+                        append: '#gc-counter-widget',
+                        path: 'TOTAL',
+                        no_branding: true,
+                        style: 'div { border: none !important; background: transparent !important; box-shadow: none !important; color: #64748b !important; padding: 0 !important; margin: 0 !important; width: auto !important; height: auto !important; min-height: 0 !important; font-size: 0.75rem !important; line-height: 1.25rem !important; } #gcvc-for { display: none !important; } #gcvc-views { font-weight: 600 !important; color: #94a3b8 !important; } #gcvc-by { display: none !important; }'
+                    });
+                    return;
+                }
+                if (attempts > 100) {
+                    clearInterval(timer);
+                    valueEl.textContent = '—';
+                }
+            }, 100);
+        })();
+    </script>
+</body>
+</html>
