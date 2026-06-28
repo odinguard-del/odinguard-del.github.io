@@ -37,12 +37,13 @@
                     colors: {
                         sg: {
                             bg: '#0B0E14',
-                            card: '#111827',
+                            card: '#1A1E2C',
+                            panel: '#1A1E2C',
                             border: '#1a2744',
                             cyan: '#00d2ff',
                             gold: '#F5A623',
-                            text: '#94a3b8',
                             muted: '#64748b',
+                            text: '#94a3b8',
                         }
                     }
                 }
@@ -50,34 +51,95 @@
         };
     </script>
     <style>
-        body { background-color: #0B0E14; color: #fff; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: #0B0E14;
+            color: #FFFFFF;
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: #FFFFFF;
+        }
+
+        .accent {
+            color: #F5A623;
+        }
+
         .grid-bg {
+            background-color: #0B0E14;
             background-image:
                 linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
             background-size: 64px 64px;
         }
+
         .hero-glow {
-            background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245, 166, 35, 0.1) 0%, transparent 65%);
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
         }
-        .card-glow {
+
+        .card {
+            background-color: #1A1E2C;
             border: 1px solid rgba(26, 39, 68, 0.8);
-            background: linear-gradient(145deg, rgba(17, 24, 39, 0.95) 0%, rgba(11, 14, 20, 0.98) 100%);
+            border-radius: 12px;
         }
+
+        .card-glow {
+            background-color: #1A1E2C;
+            border: 1px solid rgba(26, 39, 68, 0.8);
+            background: linear-gradient(145deg, rgba(26, 30, 44, 0.98) 0%, rgba(11, 14, 20, 0.98) 100%);
+        }
+
+        .card-glow:hover {
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
         .card-gold {
+            background: linear-gradient(145deg, rgba(26, 30, 44, 0.98) 0%, rgba(20, 16, 8, 0.95) 100%);
             border: 1px solid rgba(245, 166, 35, 0.35);
-            background: linear-gradient(145deg, rgba(20, 16, 8, 0.95) 0%, rgba(17, 24, 39, 0.92) 100%);
-            box-shadow: 0 0 40px -10px rgba(245, 166, 35, 0.15);
+            box-shadow: 0 0 40px -10px rgba(245, 166, 35, 0.12);
         }
+
+        .scanner-feature-card {
+            border: 1px solid rgba(245, 166, 35, 0.35);
+            background: linear-gradient(145deg, rgba(20, 16, 8, 0.95) 0%, rgba(26, 30, 44, 0.92) 45%, rgba(11, 14, 20, 0.95) 100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d2ff 0%, #0099ff 100%);
+            box-shadow: 0 0 24px rgba(0, 210, 255, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 32px rgba(0, 210, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
         .btn-gold {
-            background: linear-gradient(135deg, #F5A623 0%, #e09410 100%);
+            background-color: #F5A623;
+            color: #000000;
             box-shadow: 0 0 24px rgba(245, 166, 35, 0.3);
             transition: all 0.2s ease;
         }
+
         .btn-gold:hover {
             box-shadow: 0 0 32px rgba(245, 166, 35, 0.45);
             transform: translateY(-1px);
         }
+
+        .btn-outline-gold {
+            border: 1px solid rgba(245, 166, 35, 0.45);
+            color: #F5A623;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background: rgba(245, 166, 35, 0.1);
+        }
+
         .badge-nieuw {
             display: inline-flex;
             align-items: center;
@@ -90,7 +152,29 @@
             font-weight: 700;
             letter-spacing: 0.04em;
             text-transform: uppercase;
+            line-height: 1.2;
         }
+
+        .icon-box {
+            background: rgba(245, 166, 35, 0.08);
+            border: 1px solid rgba(245, 166, 35, 0.2);
+        }
+
+        .icon-box-cyan {
+            background: rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+        }
+
+        .nav-link {
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: #fff; }
+
+        .nav-link-active {
+            color: #F5A623;
+        }
+
         .source-pill {
             display: inline-flex;
             align-items: center;
@@ -103,47 +187,85 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
+
         .step-num {
-            color: rgba(245, 166, 35, 0.15);
+            color: rgba(245, 166, 35, 0.12);
             font-size: 2.5rem;
             font-weight: 800;
             line-height: 1;
+            user-select: none;
         }
+
+        .touch-target { min-height: 44px; min-width: 44px; }
     </style>
 </head>
-<body class="font-sans antialiased min-h-screen grid-bg hero-glow flex flex-col">
+<body class="font-sans antialiased overflow-x-hidden grid-bg hero-glow">
+
+    <!-- NAV (zelfde stijl als homepage) -->
     <nav class="fixed top-0 inset-x-0 z-50 bg-[#0B0E14]/90 backdrop-blur-xl border-b border-sg-border/40">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center gap-2.5 shrink-0">
-                <svg class="w-7 h-7 text-sg-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <svg class="w-7 h-7 text-sg-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                     <path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/>
                     <circle cx="12" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
                 </svg>
-                <span class="font-bold text-lg tracking-tight">OdinGuard</span>
+                <span class="font-bold text-lg tracking-tight text-white">OdinGuard</span>
+                <span class="badge-nieuw hidden sm:inline-flex">Nieuw!</span>
             </a>
-            <a href="/" class="text-sm text-sg-text hover:text-white transition-colors flex items-center gap-1.5 min-h-[44px] px-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Terug naar homepage
-            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm text-sg-text">
+                <a href="/#hoe-het-werkt" class="nav-link">Hoe het werkt</a>
+                <a href="/#functies" class="nav-link">Functies</a>
+                <a href="threat-radar.html" class="nav-link nav-link-active inline-flex items-center gap-1.5" aria-current="page">Threat Radar <span class="badge-nieuw">Nieuw</span></a>
+                <a href="/#privacy" class="nav-link">Privacy</a>
+                <a href="/#over-mij" class="nav-link">Over mij</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-2.5 shrink-0">
+                <a href="/" class="btn-outline-gold inline-flex items-center gap-1.5 font-semibold text-sm px-4 py-2 rounded-full">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Homepage
+                </a>
+                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Threat%20Radar&amp;body=Hoi%2C%20ik%20wil%20tester%20worden%20en%20de%20Odin-Ai%20Threat%20Radar%20uitproberen." class="inline-flex items-center gap-1 btn-gold font-semibold text-sm px-5 py-2 rounded-full">
+                    📲 Word tester
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-sg-text -mr-1" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-sg-border/40 bg-[#0B0E14]/95 backdrop-blur-xl">
+            <div class="px-4 sm:px-6 py-3 flex flex-col gap-1 text-sm text-sg-text">
+                <a href="/#hoe-het-werkt" class="py-3 min-h-[44px] flex items-center">Hoe het werkt</a>
+                <a href="/#functies" class="py-3 min-h-[44px] flex items-center">Functies</a>
+                <a href="threat-radar.html" class="py-3 min-h-[44px] flex items-center gap-2 accent font-semibold" aria-current="page">Threat Radar <span class="badge-nieuw">Nieuw</span></a>
+                <a href="/#privacy" class="py-3 min-h-[44px] flex items-center">Privacy</a>
+                <a href="/#over-mij" class="py-3 min-h-[44px] flex items-center">Over mij</a>
+                <a href="/" class="py-3 min-h-[44px] flex items-center">← Terug naar homepage</a>
+                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Threat%20Radar&amp;body=Hoi%2C%20ik%20wil%20tester%20worden%20en%20de%20Odin-Ai%20Threat%20Radar%20uitproberen." class="btn-gold font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target mt-2">📲 Word tester</a>
+            </div>
         </div>
     </nav>
 
-    <main class="flex-1 pt-24 pb-12 px-4 sm:px-6">
+    <main class="pt-24 pb-12 px-4 sm:px-6">
         <div class="max-w-4xl mx-auto">
             <!-- Hero -->
             <header class="text-center mb-10 sm:mb-14">
+                <p class="text-[#F5A623] text-xs font-semibold tracking-[0.2em] uppercase mb-3">Odin-Ai Threat Radar</p>
                 <div class="inline-flex items-center gap-2 mb-4">
-                    <span class="badge-nieuw">Nieuw</span>
+                    <span class="badge-nieuw">Nieuw!</span>
                 </div>
-                <div class="flex justify-center mb-4">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center card-gold">
-                        <i class="fa-solid fa-satellite-dish text-3xl text-sg-gold" aria-hidden="true"></i>
+                <div class="flex justify-center mb-5">
+                    <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-satellite-dish text-3xl accent" aria-hidden="true"></i>
                     </div>
                 </div>
                 <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 leading-tight">
                     🛡️ Odin-Ai Threat Radar
                 </h1>
-                <p class="text-lg sm:text-xl text-sg-gold font-semibold mb-4">
+                <p class="text-lg sm:text-xl accent font-semibold mb-4">
                     Real-time fraude-meldingen uit uw regio
                 </p>
                 <p class="text-sg-text text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -154,9 +276,11 @@
             </header>
 
             <!-- Wat is de Threat Radar? -->
-            <section class="card-gold rounded-2xl p-5 sm:p-8 mb-6">
+            <section class="card-gold rounded-2xl p-5 sm:p-8 mb-4 sm:mb-6">
                 <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-radar text-sg-gold" aria-hidden="true"></i>
+                    <span class="icon-box w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-radar accent text-sm" aria-hidden="true"></i>
+                    </span>
                     Wat is de Threat Radar?
                 </h2>
                 <p class="text-sg-text text-sm sm:text-base leading-relaxed mb-5">
@@ -164,23 +288,23 @@
                 </p>
                 <ul class="space-y-3 text-sm sm:text-base">
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-users text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <i class="fa-solid fa-users accent mt-1 shrink-0" aria-hidden="true"></i>
                         <span class="text-sg-text"><strong class="text-white">Andere gebruikers</strong> (anoniem)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-building-shield text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <i class="fa-solid fa-building-shield accent mt-1 shrink-0" aria-hidden="true"></i>
                         <span class="text-sg-text"><strong class="text-white">Safeonweb</strong> (CCB)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-globe-europe text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <i class="fa-solid fa-globe-europe accent mt-1 shrink-0" aria-hidden="true"></i>
                         <span class="text-sg-text"><strong class="text-white">Europol</strong> (EC3)</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-flag text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <i class="fa-solid fa-flag accent mt-1 shrink-0" aria-hidden="true"></i>
                         <span class="text-sg-text"><strong class="text-white">NCSC Nederland</strong></span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-shield-halved text-sg-gold mt-1 shrink-0" aria-hidden="true"></i>
+                        <i class="fa-solid fa-shield-halved accent mt-1 shrink-0" aria-hidden="true"></i>
                         <span class="text-sg-text"><strong class="text-white">CERT Belgium</strong></span>
                     </li>
                 </ul>
@@ -194,48 +318,51 @@
             </section>
 
             <!-- Hoe werkt het? -->
-            <section class="mb-6">
+            <section class="mb-4 sm:mb-6">
                 <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-4 text-center">Hoe werkt het?</h2>
                 <div class="grid sm:grid-cols-2 gap-3">
                     <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
                         <span class="step-num absolute top-3 right-4" aria-hidden="true">01</span>
-                        <i class="fa-solid fa-location-crosshairs text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <i class="fa-solid fa-location-crosshairs accent text-lg mb-3" aria-hidden="true"></i>
                         <p class="text-sg-text text-sm leading-relaxed">OdinGuard verzamelt anonieme signalen uit uw regio.</p>
                     </div>
                     <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
                         <span class="step-num absolute top-3 right-4" aria-hidden="true">02</span>
-                        <i class="fa-solid fa-bell text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <i class="fa-solid fa-bell accent text-lg mb-3" aria-hidden="true"></i>
                         <p class="text-sg-text text-sm leading-relaxed">U ontvangt een push-notificatie bij nieuwe dreigingen.</p>
                     </div>
                     <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
                         <span class="step-num absolute top-3 right-4" aria-hidden="true">03</span>
-                        <i class="fa-solid fa-list-check text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <i class="fa-solid fa-list-check accent text-lg mb-3" aria-hidden="true"></i>
                         <p class="text-sg-text text-sm leading-relaxed">In de app ziet u een overzicht van actieve campagnes, meldingen en officiële waarschuwingen.</p>
                     </div>
                     <div class="card-glow rounded-2xl p-5 relative overflow-hidden">
                         <span class="step-num absolute top-3 right-4" aria-hidden="true">04</span>
-                        <i class="fa-solid fa-mobile-screen text-sg-gold text-lg mb-3" aria-hidden="true"></i>
+                        <i class="fa-solid fa-mobile-screen accent text-lg mb-3" aria-hidden="true"></i>
                         <p class="text-sg-text text-sm leading-relaxed">Alles blijft lokaal op uw toestel – geen data naar de cloud.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Waarom belangrijk? -->
-            <section class="card-glow rounded-2xl p-5 sm:p-8 mb-8 border-l-4 border-sg-gold">
+            <section class="card-glow rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8 border-l-4 border-[#F5A623]">
                 <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-3">Waarom belangrijk?</h2>
                 <p class="text-sg-text text-sm sm:text-base leading-relaxed">
-                    Fraude is lokaal. Een phishing-poging in Antwerpen kan heel anders zijn dan in Brussel. De Threat Radar geeft u precies de informatie die relevant is voor uw regio. <strong class="text-sg-gold">Gewaarschuwd = beschermd.</strong>
+                    Fraude is lokaal. Een phishing-poging in Antwerpen kan heel anders zijn dan in Brussel. De Threat Radar geeft u precies de informatie die relevant is voor uw regio. <strong class="accent">Gewaarschuwd = beschermd.</strong>
                 </p>
             </section>
 
             <!-- CTA -->
-            <section class="card-gold rounded-2xl p-6 sm:p-10 text-center">
+            <section class="scanner-feature-card rounded-2xl p-6 sm:p-10 text-center">
+                <div class="icon-box-cyan w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-shield-halved text-sg-cyan text-lg" aria-hidden="true"></i>
+                </div>
                 <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-3">Word tester</h2>
                 <p class="text-sg-text text-sm sm:text-base leading-relaxed mb-6 max-w-lg mx-auto">
                     📲 Word nu tester en ontdek de Threat Radar in de OdinGuard Android-app.
                 </p>
                 <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Threat%20Radar&amp;body=Hoi%2C%20ik%20wil%20tester%20worden%20en%20de%20Odin-Ai%20Threat%20Radar%20uitproberen."
-                   class="btn-gold inline-flex items-center justify-center gap-2 text-[#0B0E14] font-semibold text-sm sm:text-base px-8 py-3.5 min-h-[44px] rounded-full touch-target">
+                   class="btn-gold inline-flex items-center justify-center gap-2 font-bold text-sm sm:text-base px-8 py-3 min-h-[44px] rounded-full touch-target">
                     📲 Word tester
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -243,20 +370,41 @@
         </div>
     </main>
 
-    <footer class="border-t border-sg-border/40 py-6 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-xs sm:text-sm text-sg-text mb-3">
+    <!-- FOOTER (zelfde stijl als homepage) -->
+    <footer class="border-t border-sg-border/30 py-5 px-4 sm:px-0 mt-4">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-3">
+            <p class="text-xs sm:text-sm text-sg-text text-center">
                 Beschermd door Odin-Ai · 100% on-device · Geen cloud · Geen account
             </p>
-            <a href="/" class="text-sm text-sg-gold hover:underline">← Terug naar homepage</a>
-            <div id="gc-counter" class="text-xs text-sg-muted mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full text-sm text-sg-muted text-center sm:text-left">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-sg-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z"/></svg>
+                    <span class="font-semibold text-white">OdinGuard</span>
+                </div>
+                <p>© 2026 OdinGuard. Belgisch product — privacy by design.</p>
+            </div>
+            <a href="/" class="text-sm accent hover:underline">← Terug naar homepage</a>
+            <div id="gc-counter" class="text-xs text-sg-muted text-center">
                 Bezoekers: <span id="counter-value">laden…</span>
-                <noscript>Bezoekers: <a href="https://odinguard.goatcounter.com/" class="text-sg-gold hover:underline">odinguard.goatcounter.com</a></noscript>
+                <noscript>Bezoekers: <a href="https://odinguard.goatcounter.com/" class="text-sg-cyan hover:underline">odinguard.goatcounter.com</a></noscript>
             </div>
         </div>
     </footer>
 
     <script>
+        var menuBtn = document.getElementById('menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
         (function () {
             var valueEl = document.getElementById('counter-value');
             if (!valueEl) return;
