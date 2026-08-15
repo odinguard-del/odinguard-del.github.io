@@ -80,6 +80,77 @@
             transform: translateY(-1px);
         }
 
+        .btn-cta-hero {
+            background: linear-gradient(135deg, #00d2ff 0%, #0099ff 100%);
+            box-shadow: 0 0 32px rgba(0, 210, 255, 0.45);
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-cta-hero:hover {
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .urgency-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(245, 166, 35, 0.12);
+            border: 1px solid rgba(245, 166, 35, 0.45);
+            color: #F5A623;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .social-proof-strip {
+            border-top: 1px solid rgba(26, 39, 68, 0.5);
+            border-bottom: 1px solid rgba(26, 39, 68, 0.5);
+            background: rgba(12, 20, 37, 0.55);
+        }
+
+        .testimonial-quote {
+            border-left: 2px solid rgba(0, 210, 255, 0.35);
+            background: rgba(12, 20, 37, 0.65);
+        }
+
+        .tester-form input {
+            width: 100%;
+            background: rgba(5, 10, 20, 0.85);
+            border: 1px solid rgba(26, 39, 68, 0.9);
+            border-radius: 0.75rem;
+            color: #fff;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            min-height: 48px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .tester-form input::placeholder {
+            color: #64748b;
+        }
+
+        .tester-form input:focus {
+            border-color: rgba(0, 210, 255, 0.45);
+        }
+
+        .tester-form-success {
+            display: none;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            background: rgba(0, 210, 255, 0.08);
+            border-radius: 0.75rem;
+            padding: 0.9rem 1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .tester-form-success.is-visible {
+            display: block;
+        }
+
         .btn-facebook {
             background: #1877F2;
             box-shadow: 0 0 16px rgba(24, 119, 242, 0.25);
@@ -557,12 +628,11 @@
                 <span class="badge-nieuw hidden sm:inline-flex">Nieuw!</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm text-sg-text">
-                <a href="#hoe-het-werkt" class="nav-link">Hoe het werkt</a>
-                <a href="#functies" class="nav-link">Functies</a>
-                <a href="threat-radar.html" class="nav-link inline-flex items-center gap-1.5">Threat Radar <span class="badge-nieuw">Nieuw</span></a>
+            <div class="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-sg-text" id="table-of-contents">
+                <a href="#functies" class="nav-link">Bescherming</a>
+                <a href="#waarom" class="nav-link">Waarom OdinGuard</a>
                 <a href="#privacy" class="nav-link">Privacy</a>
-                <a href="#over-mij" class="nav-link">Over mij</a>
+                <a href="#tester" class="nav-link text-sg-cyan font-semibold">Word Tester</a>
             </div>
 
             <div class="hidden md:flex items-center gap-2.5 shrink-0">
@@ -572,8 +642,8 @@
                     </svg>
                     Facebook
                 </a>
-                <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
-                    📲 Word tester
+                <a href="#tester" class="inline-flex items-center gap-1 btn-primary text-sg-bg font-semibold text-sm px-5 py-2 rounded-full">
+                    Start als tester
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -585,11 +655,11 @@
 
         <div id="mobile-menu" class="hidden md:hidden border-t border-sg-border/40 bg-sg-bg/95 backdrop-blur-xl">
             <div class="px-4 sm:px-6 py-3 flex flex-col gap-1 text-sm text-sg-text">
-                <a href="#hoe-het-werkt" class="py-3 min-h-[44px] flex items-center">Hoe het werkt</a>
-                <a href="#functies" class="py-3 min-h-[44px] flex items-center">Functies</a>
+                <a href="#functies" class="py-3 min-h-[44px] flex items-center">Bescherming</a>
+                <a href="#waarom" class="py-3 min-h-[44px] flex items-center">Waarom OdinGuard</a>
                 <a href="threat-radar.html" class="py-3 min-h-[44px] flex items-center gap-2">Threat Radar <span class="badge-nieuw">Nieuw</span></a>
                 <a href="#privacy" class="py-3 min-h-[44px] flex items-center">Privacy</a>
-                <a href="#over-mij" class="py-3 min-h-[44px] flex items-center">Over mij</a>
+                <a href="#tester" class="py-3 min-h-[44px] flex items-center text-sg-cyan font-semibold">Word Tester</a>
                 <div class="flex flex-col sm:flex-row gap-2 mt-2">
                     <a href="https://www.facebook.com/profile.php?id=61590523230972" class="btn-facebook text-white font-semibold text-center py-3 min-h-[44px] flex items-center justify-center gap-2 rounded-full touch-target" target="_blank" rel="noopener noreferrer" aria-label="Volg OdinGuard op Facebook">
                         <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -597,14 +667,14 @@
                         </svg>
                         Facebook
                     </a>
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target flex-1">📲 Word tester</a>
+                    <a href="#tester" class="btn-primary text-sg-bg font-semibold text-center py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target flex-1">Start als tester</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="relative pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-14 grid-bg hero-glow flex items-center">
+    <section id="hero" class="relative pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-14 grid-bg hero-glow flex items-center">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
             <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-6 items-center">
                 <div class="max-w-xl lg:max-w-none mx-auto lg:mx-0 w-full order-2 lg:order-1">
@@ -614,22 +684,30 @@
                         <span class="badge-nieuw">Nieuw!</span>
                     </div>
 
-                    <h1 class="text-[1.75rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] lg:text-[3.25rem] font-extrabold tracking-tight mb-3 sm:mb-4">
-                        Slimme bescherming tegen digitale fraude.<br>
-                        <span class="text-sg-cyan">Direct op je Android-telefoon.</span>
+                    <h1 class="text-[1.65rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] lg:text-[2.85rem] font-extrabold tracking-tight mb-3 sm:mb-4">
+                        Slimme bescherming tegen fraude.<br>
+                        <span class="text-sg-cyan">Direct op je Android.</span><br>
+                        En jij kunt het nu gratis testen.
                     </h1>
 
                     <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-lg mb-3 sm:mb-4">
+                        Word tester en krijg <strong class="text-white">levenslang gratis toegang</strong> tot alle premiumfuncties. Geen abonnement, geen verborgen kosten.
+                    </p>
+
+                    <p class="text-sg-text text-sm sm:text-sm leading-6 sm:leading-relaxed max-w-lg mb-4 sm:mb-5 border-l-2 border-sg-cyan/30 pl-3 sm:pl-4">
                         OdinGuard met Odin-AI is je lokale AI-beschermer voor Android die verdachte berichten, links en scams herkent — volledig op je eigen toestel. Geen cloud, geen account, geen dataverzameling. Jouw berichten en data blijven strikt van jou.
                     </p>
 
-                    <p class="text-sg-text text-sm sm:text-sm leading-6 sm:leading-relaxed max-w-lg mb-5 sm:mb-6 border-l-2 border-sg-cyan/30 pl-3 sm:pl-4">
-                        OdinGuard — een Android-app voor Google Play — combineert de nieuwste officiële Google threat signals met diepgaande eigen fraud intelligence — numeric tampering protectie, behavioral sequencing, WhatsApp/Telegram/Signal guard, Odin-AI call intelligence en sterke RASP — voor bescherming die puur caller-ID of standaard Play Protect niet biedt.
-                    </p>
+                    <div class="flex flex-col gap-3 sm:flex-row mb-4 sm:mb-5">
+                        <a href="#tester" class="btn-cta-hero text-sg-bg font-bold px-8 py-4 min-h-[48px] flex items-center justify-center rounded-full text-center touch-target">🚀 Start nu als tester</a>
+                        <a href="#functies" class="border border-sg-border text-white font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center hover:bg-white/5 transition-colors touch-target">Bekijk bescherming</a>
+                    </div>
 
-                    <div class="flex flex-col gap-3 sm:flex-row mb-5 sm:mb-6">
-                        <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center touch-target">📲 Word tester</a>
-                        <a href="#hoe-het-werkt" class="border border-sg-border text-white font-semibold px-8 py-3.5 min-h-[44px] flex items-center justify-center rounded-full text-center hover:bg-white/5 transition-colors touch-target">Meer weten</a>
+                    <div class="mb-5">
+                        <span class="urgency-pill">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#F5A623] animate-pulse"></span>
+                            Slechts <span id="hero-spots">12</span> testplekken beschikbaar
+                        </span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2.5 sm:gap-4 text-sm text-sg-text">
@@ -674,6 +752,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof-strip py-5" aria-label="Sociale bewijskracht">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <p class="text-white font-extrabold text-lg sm:text-xl tabular-nums"><span id="proof-testers">180+</span></p>
+                    <p class="text-sg-muted text-xs sm:text-sm mt-0.5">testers aangemeld</p>
+                </div>
+                <div>
+                    <p class="text-white font-extrabold text-lg sm:text-xl">100%</p>
+                    <p class="text-sg-muted text-xs sm:text-sm mt-0.5">on-device &amp; privé</p>
+                </div>
+                <div>
+                    <p class="text-white font-extrabold text-lg sm:text-xl">Lifetime</p>
+                    <p class="text-sg-muted text-xs sm:text-sm mt-0.5">premium voor testers</p>
+                </div>
+                <div>
+                    <p class="text-white font-extrabold text-lg sm:text-xl tabular-nums"><span id="proof-spots">12</span></p>
+                    <p class="text-sg-muted text-xs sm:text-sm mt-0.5">plekken nog vrij</p>
                 </div>
             </div>
         </div>
@@ -797,12 +899,12 @@
     </section>
 
     <!-- FUNCTIES -->
-    <section id="functies" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30">
+    <section id="functies" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30 scroll-mt-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-6 sm:mb-8">
                 <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Fraudebescherming</p>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-3 leading-tight">Bescherming tegen de meest voorkomende fraudes</h2>
-                <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-2xl mx-auto">Odin-AI detecteert lokaal de fraudevormen die in België en Nederland het meest voorkomen — van pakketfraude tot numeric tampering en vishing:</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-3 leading-tight">Alle bescherming in één oogopslag</h2>
+                <p class="text-sg-text text-base sm:text-lg leading-7 sm:leading-relaxed max-w-2xl mx-auto">Odin-AI detecteert lokaal de fraudevormen die in België en Nederland het meest voorkomen — van pakketfraude tot numeric tampering, document-scanners en vishing:</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -1016,7 +1118,7 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-2 lg:col-span-3 pt-4 sm:pt-6">
+                <div id="waarom" class="sm:col-span-2 lg:col-span-3 pt-4 sm:pt-6 scroll-mt-24">
                     <div class="section-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 text-left">
                         <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Waarom OdinGuard</p>
                         <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3 leading-tight">Waarom OdinGuard anders is</h3>
@@ -1128,7 +1230,7 @@
     </section>
 
     <!-- PRIVACY -->
-    <section id="privacy" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30">
+    <section id="privacy" class="py-10 sm:py-12 md:py-14 border-t border-sg-border/30 scroll-mt-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-6 sm:mb-8">
                 <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-sg-cyan/10 border border-sg-cyan/20 text-sg-cyan text-xs font-medium mb-4">
@@ -1247,8 +1349,33 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section id="cta" class="py-10 sm:py-12 md:py-14">
+    <!-- TESTIMONIALS -->
+    <section id="ervaringen" class="py-10 sm:py-12 border-t border-sg-border/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-6 sm:mb-8">
+                <p class="text-sg-cyan text-xs font-semibold tracking-[0.2em] uppercase mb-2">Ervaringen</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">Wat testers zeggen</h2>
+                <p class="text-sg-text text-sm sm:text-base max-w-xl mx-auto">Korte, anonieme feedback van mensen die OdinGuard al dagelijks gebruiken.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-3">
+                <blockquote class="testimonial-quote rounded-2xl p-5">
+                    <p class="text-sg-text text-sm leading-relaxed italic mb-3">“OdinGuard waarschuwde me vóór ik op een phishing-link klikte. Echt een lifesaver.”</p>
+                    <cite class="text-sg-muted text-xs not-italic">— Anonieme tester, België</cite>
+                </blockquote>
+                <blockquote class="testimonial-quote rounded-2xl p-5">
+                    <p class="text-sg-text text-sm leading-relaxed italic mb-3">“Eindelijk bescherming die lokaal blijft. Geen account, geen cloud — precies wat ik zocht.”</p>
+                    <cite class="text-sg-muted text-xs not-italic">— Anonieme tester, Nederland</cite>
+                </blockquote>
+                <blockquote class="testimonial-quote rounded-2xl p-5">
+                    <p class="text-sg-text text-sm leading-relaxed italic mb-3">“De document-scanner blokkeerde een verdachte .apk in WhatsApp. Dat had ik zelf gemist.”</p>
+                    <cite class="text-sg-muted text-xs not-italic">— Anonieme tester</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / TESTER -->
+    <section id="tester" class="py-10 sm:py-12 md:py-14 scroll-mt-20">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="cta-panel rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 text-center">
                 <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sg-cyan/20 border border-sg-cyan/30 mb-4 shadow-[0_0_24px_rgba(0,210,255,0.2)]">
@@ -1257,8 +1384,15 @@
 
                 <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3 leading-tight">Word tester — en krijg lifetime premium toegang</h2>
                 <p class="text-sg-text text-sm sm:text-base leading-6 sm:leading-relaxed max-w-lg mx-auto mb-4">
-                    OdinGuard is nog in testfase. Test nu de nieuwste versie met de <strong class="text-white">Document &amp; Berichtenscanner</strong>. We zoeken een beperkt aantal mensen die de app dagelijks willen gebruiken en ons helpen verbeteren. Als tester krijg je lifetime premium toegang: je betaalt nooit meer voor de app.
+                    OdinGuard is nog in testfase. Test nu de nieuwste versie met de <strong class="text-white">Document &amp; Berichtenscanner</strong> en Threat Radar. We zoeken een beperkt aantal mensen die de app dagelijks willen gebruiken en ons helpen verbeteren. Als tester krijg je lifetime premium toegang: je betaalt nooit meer voor de app.
                 </p>
+
+                <div class="mb-5">
+                    <span class="urgency-pill">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F5A623] animate-pulse"></span>
+                        Slechts <span id="tester-spots">12</span> plekken beschikbaar deze ronde
+                    </span>
+                </div>
 
                 <div class="max-w-md mx-auto text-left mb-6 space-y-4">
                     <div>
@@ -1279,14 +1413,37 @@
                     </div>
                 </div>
 
+                <form id="tester-form" class="tester-form max-w-md mx-auto text-left mb-5 space-y-3" novalidate>
+                    <label class="block">
+                        <span class="sr-only">Je naam</span>
+                        <input type="text" name="name" id="tester-name" placeholder="Je naam" required autocomplete="name" maxlength="80">
+                    </label>
+                    <label class="block">
+                        <span class="sr-only">Je e-mailadres</span>
+                        <input type="email" name="email" id="tester-email" placeholder="Je e-mailadres" required autocomplete="email" maxlength="120">
+                    </label>
+                    <button type="submit" class="btn-cta-hero w-full text-sg-bg font-bold px-8 py-3.5 min-h-[48px] rounded-full touch-target">
+                        Aanmelden als tester
+                    </button>
+                    <p class="text-sg-muted text-xs text-center">Privacy-first: je aanmelding opent je e-mailapp. Geen cloudformulier, geen tracking.</p>
+                </form>
+
+                <div id="tester-form-success" class="tester-form-success max-w-md mx-auto mb-5 text-left" role="status" aria-live="polite">
+                    Bedankt! Je e-mailapp opent met je aanmelding. Stuur het bericht door om je plek te claimen.
+                </div>
+
+                <blockquote class="testimonial-quote rounded-xl p-4 text-left max-w-md mx-auto mb-5">
+                    <p class="text-sg-text text-sm leading-relaxed italic mb-2">“OdinGuard waarschuwde me vóór ik op een phishing-link klikte. Echt een lifesaver!”</p>
+                    <cite class="text-sg-muted text-xs not-italic">— Anonieme tester</cite>
+                </blockquote>
+
                 <div class="flex flex-col gap-3 sm:flex-row justify-center mb-4">
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="btn-primary text-sg-bg font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full touch-target">📲 Word tester</a>
                     <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Feedback" class="border border-sg-border text-white font-semibold px-8 py-3 min-h-[44px] flex items-center justify-center rounded-full hover:bg-white/5 transition-colors touch-target">Feedback geven</a>
                 </div>
 
                 <p class="text-sg-text text-sm mb-4">
-                    Mail ons op
-                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester%20-%20Document%20Scanner&amp;body=Hoi%2C%20ik%20wil%20de%20nieuwste%20testversie%20met%20de%20Document%20%26%20Berichtenscanner%20proberen." class="text-sg-cyan hover:underline font-medium">safeguardodin@gmail.com</a>
+                    Of mail direct naar
+                    <a href="mailto:safeguardodin@gmail.com?subject=OdinGuard%20Tester" class="text-sg-cyan hover:underline font-medium">safeguardodin@gmail.com</a>
                 </p>
 
                 <p class="text-sg-muted text-xs">Beperkt aantal plaatsen · Lifetime premium voor testers · 100% on-device</p>
@@ -1483,6 +1640,63 @@
                 closeSettingsModal();
             }
         });
+    </script>
+    <script>
+        (function () {
+            var STORAGE_KEY = 'odinguard_tester_spots';
+            var DEFAULT_SPOTS = 12;
+            var spots = DEFAULT_SPOTS;
+            try {
+                var stored = localStorage.getItem(STORAGE_KEY);
+                if (stored !== null) {
+                    var parsed = parseInt(stored, 10);
+                    if (!isNaN(parsed) && parsed >= 0 && parsed <= DEFAULT_SPOTS) {
+                        spots = parsed;
+                    }
+                }
+            } catch (e) { /* privacy: localStorage may be blocked */ }
+
+            function renderSpots() {
+                ['hero-spots', 'tester-spots', 'proof-spots'].forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el) el.textContent = String(spots);
+                });
+            }
+            renderSpots();
+
+            var form = document.getElementById('tester-form');
+            if (!form) return;
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var nameInput = document.getElementById('tester-name');
+                var emailInput = document.getElementById('tester-email');
+                var name = (nameInput && nameInput.value || '').trim();
+                var email = (emailInput && emailInput.value || '').trim();
+                if (!name || !email || !emailInput.checkValidity()) {
+                    if (emailInput) emailInput.reportValidity();
+                    return;
+                }
+
+                var subject = encodeURIComponent('OdinGuard Tester — aanmelding');
+                var body = encodeURIComponent(
+                    'Hoi,\n\nIk wil me aanmelden als OdinGuard-tester.\n\nNaam: ' + name +
+                    '\nE-mail: ' + email +
+                    '\n\nIk wil de nieuwste testversie met Document & Berichtenscanner en Threat Radar uitproberen.\n'
+                );
+                window.location.href = 'mailto:safeguardodin@gmail.com?subject=' + subject + '&body=' + body;
+
+                if (spots > 1) {
+                    spots -= 1;
+                    try { localStorage.setItem(STORAGE_KEY, String(spots)); } catch (e) {}
+                    renderSpots();
+                }
+
+                var success = document.getElementById('tester-form-success');
+                if (success) success.classList.add('is-visible');
+                form.reset();
+            });
+        })();
     </script>
     <script>
         (function () {
